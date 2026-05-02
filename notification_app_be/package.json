@@ -6,7 +6,6 @@
   "scripts": {
     "start": "ts-node index-production.ts",
     "dev": "ts-node index.ts",
-    "mock": "ts-node mock-server.ts",
     "build": "tsc",
     "lint": "echo \"Linting...\"",
     "test": "echo \"Running tests...\" && exit 0",
@@ -27,9 +26,5 @@
     "@types/node": "^20.0.0",
     "ts-node": "^10.9.0",
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "@types/express": "^5.0.6",
-    "express": "^5.2.1"
   }
 }
