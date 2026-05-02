@@ -1,0 +1,12 @@
+{
+  "name": "notification-logger",
+  "version": "1.0.0",
+  "description": "Logging middleware for Campus Notifications Microservice",
+  "main": "Logger.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["logging", "middleware", "notifications"],
+  "author": "Ayush Verma",
+  "license": "ISC"
+}
