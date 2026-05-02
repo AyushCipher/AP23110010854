@@ -1,4 +1,6 @@
-# Notification System Design — Stage 1
+# Stage 1
+
+## Notification System Design
 
 ## 1. Overview
 
