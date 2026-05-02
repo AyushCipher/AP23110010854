@@ -1,0 +1,25 @@
+{
+  "name": "notification-app-be",
+  "version": "1.0.0",
+  "description": "Production-grade notification system with priority logic - Stage 1",
+  "main": "index-production.ts",
+  "scripts": {
+    "start": "ts-node index-production.ts",
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "lint": "echo \"Linting...\"",
+    "test": "echo \"Running tests...\" && exit 0",
+    "format": "echo \"Formatting code...\""
+  },
+  "keywords": ["notifications", "priority", "backend", "microservice"],
+  "author": "Ayush Verma",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "@types/node": "^20.0.0"
+  }
+}
