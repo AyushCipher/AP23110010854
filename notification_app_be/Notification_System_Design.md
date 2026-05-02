@@ -307,3 +307,23 @@ Managed in `src/config/constants.ts`. Overridable via environment variables.
 | Layered service architecture | Each class has a single responsibility; easy to test and extend per stage |
 | Async logger with queue | Avoids blocking the main pipeline on every log write |
 | Error enveloping in response | Allows the orchestrator to inspect failures without try-catch at every call site |
+
+---
+
+## 13. Efficiency and Scaling
+
+### 13.1 Computational Complexity
+- **Time Complexity**: $O(N \log N)$ where $N$ is the total number of notifications fetched. This is dominated by the sorting algorithm.
+- **Space Complexity**: $O(N)$ to store the fetched notifications in memory during processing.
+
+### 13.2 Maintaining Top-N Efficiently
+To maintain the Top-10 efficiently as new notifications arrive (streaming scenario), the system would transition from a global sort to a **Min-Heap (Priority Queue)** of size 10:
+1. Initialize a Min-Heap of size 10 based on the `SortKey`.
+2. For every new notification:
+   - Compare its `SortKey` with the heap's root (the minimum of the current top 10).
+   - If the new notification has a higher `SortKey`, replace the root and heapify.
+3. This reduces complexity from $O(M \log M)$ to $O(M \log N)$, where $M$ is the stream size and $N$ is the inbox limit (10).
+
+### 13.3 Handling High Volume
+- **Batch Processing**: Instead of fetching all notifications at once, the system can implement pagination at the API level (if supported) to process notifications in chunks.
+- **Caching**: The `SortKey` can be calculated once and stored (e.g., in Redis) to avoid re-parsing timestamps during frequent re-sorts.
